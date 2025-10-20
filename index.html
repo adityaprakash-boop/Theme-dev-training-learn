@@ -10,7 +10,8 @@
 </head>
 <body>
     <div class="main-container">
-        <div class="product-page-image-options">
+      <div class="first-two">
+         <div class="product-page-image-options">
           <div class="product-page-image-options-image"><img src="https://www.jonesroadbeauty.com/cdn/shop/files/ClassicLip_Nudist_01_323cccc3-f913-4539-888b-e7ff955ceb24.png?v=1756744744&width=1500" alt=""></div>
           <div class="product-page-image-options-image"><img src="https://www.jonesroadbeauty.com/cdn/shop/files/ClassicLip_Nudist_02.png?v=1756744748&width=1500" alt=""></div>
           <div class="product-page-image-options-image"><img src="https://www.jonesroadbeauty.com/cdn/shop/files/ClassicLip_Nudist_03.png?v=1756744748&width=1500" alt=""></div>
@@ -22,6 +23,8 @@
       <img src="https://www.jonesroadbeauty.com/cdn/shop/files/Bobbi_Kit_PDP_-_CHIC_-_1_a7b0cae1-3a64-4a1d-a82d-fb7de5b40f5a.png?crop=center&height=720&v=1759402333&width=720" alt="">
         
      </div>
+      </div>
+        
      <div class="product-page-desc">
        <h1 class="product-page-desc-heading">THE CLASSIC LIP</h1>
        <div class="product-page-rating">
@@ -77,14 +80,49 @@ Skin-conditioning peptide made up of 3 amino acids (glycine, lysine, and histidi
     <script>
   const faqs = document.querySelectorAll('.faq');
 
-faqs.forEach(faq => {
-  const question = faq.querySelector('p');
-  question.addEventListener('click', () => {
-    faq.classList.toggle('active');
+  // FAQ toggle
+  faqs.forEach(faq => {
+    const question = faq.querySelector('p');
+    question.addEventListener('click', () => {
+      faq.classList.toggle('active');
+    });
   });
-});
 
+  // 🖼️ Image hover + persistent click
+  const mainImage = document.querySelector('.product-page-image img');
+  const thumbnails = document.querySelectorAll('.product-page-image-options-image img');
+  let currentSrc = mainImage.src;
+
+  thumbnails.forEach(thumb => {
+    const parentBox = thumb.closest('.product-page-image-options-image');
+
+    // Hover: temporary preview
+    thumb.addEventListener('mouseenter', () => {
+      mainImage.src = thumb.src;
+    });
+
+    // Leave: revert to persistent
+    thumb.addEventListener('mouseleave', () => {
+      mainImage.src = currentSrc;
+    });
+
+    // Click: persist + highlight selected thumbnail
+    thumb.addEventListener('click', () => {
+      currentSrc = thumb.src;
+      mainImage.src = currentSrc;
+
+      // remove highlight from others
+      document.querySelectorAll('.product-page-image-options-image')
+        .forEach(el => el.classList.remove('selected'));
+
+      // add highlight to current
+      parentBox.classList.add('selected');
+    });
+  });
 </script>
+
+
+
 
 
 </body>

@@ -108,7 +108,7 @@ span p{
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.7rem;
     align-items: center;
     
 }
@@ -118,8 +118,8 @@ span p{
     
 }
 .product-page-image-options-image{
-    max-width: 112px;
-    max-height: 112px;
+    max-width: 120px;
+    max-height: 120px;
     border: 1px solid transparent;
 }
 .product-page-rating-text  p{
@@ -204,70 +204,91 @@ li{
 
     
 }
-@media (max-width: 1024px) {
-  .main-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 1rem;
-  }
-
-  /* Wrap the main image and options together */
-  .product-page-image {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 50%;
-    max-width: 50%;
-    align-items: center;
-  }
-
-  /* Move the image options below the main image */
-  .product-page-image-options {
-    order: 2;
+.first-two{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+    gap: 0.9rem;
+}
+.product-page-image {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Keeps a perfect square shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* prevents stretched or overflowing images */
+}
+
+.product-page-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* fits image inside without changing box */
+  transition: transform 0.3s ease;
+}
+
+/* Highlight selected thumbnail */
+.product-page-image-options-image.selected {
+  border: 1px solid black;
+
+}
+.buttons:hover .product-page-button-1,
+.buttons:hover .product-page-button-2 {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.product-page-button-1,
+.product-page-button-2 {
+  cursor: pointer; 
+ 
+}
+@media (max-width: 1024px) {
+  .first-two {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .product-page-image-options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; /* wrap thumbnails if needed */
+    order: 2;
     gap: 0.5rem;
-    margin-top: 1rem;
+    justify-content: center;
+    max-width: 100%;
   }
 
   .product-page-image-options-image {
-    max-width: 90px;
-    max-height: 90px;
+    max-width: 100px;
   }
 
-  /* Keep the description beside both */
-  .product-page-desc {
-    flex: 1 1 40%;
-    max-width: 40%;
+  .product-page-image-options img {
+    width: 100%;
+    height: auto; /* prevents distortion */
   }
+}
+
+/* 👇 separate media query, not nested */
+@media (max-width: 768px) {
   .main-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem; /* optional spacing */
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-page-desc {
+    max-width: 100%;
+  }
+
+  .first-two {
+    align-items: center;
+  }
+
+  .product-page-image-options {
+    flex: 1;
+  }
 }
 
-/* Product image section */
-.product-page-image {
-  flex: 1 1 50%;
-  max-width: 50%;
-}
 
-/* Product description section */
-.product-page-desc {
-  flex: 1 1 50%;
-  max-width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-}
 
 
