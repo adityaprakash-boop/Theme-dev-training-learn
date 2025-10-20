@@ -1,0 +1,206 @@
+body{
+    
+    box-sizing: border-box;
+    
+}
+:root{
+    --learn-font: 'Zalando Sans Expanded', sans-serif;
+}
+* {
+    box-sizing: border-box;
+    font-family: var(--learn-font);
+}
+.main-container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    /* border: 1px solid black; */
+    gap: 0.7rem;
+}
+.product-page-image{
+    /* display: inline-block; */
+    /* border: 1px solid red; */
+}
+.product-page-image img{
+    /* height: auto; */
+    width: 100%;
+    height: 100%;
+
+    
+}
+h1{
+    /* position: absolute; */
+    font-size: 1.5rem;
+    
+    margin: 0;
+   font-weight: 700;
+    
+}
+
+
+.product-page-desc{
+    display: flex;
+    flex-direction: column;
+    
+}
+.product-page-desc-heading{
+   
+        font-weight: bold;
+}
+.product-page-rating{
+    display: flex;
+    gap:2px;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+.product-page-rating-img img{
+   max-width: 20px;
+   max-height: 20px;
+}
+.mini-desc{
+    color: gray;
+    margin: 0;
+    font-size: 0.85rem;
+        margin-top: 0.5rem;
+}
+.mini-desc>span{
+    color: black;
+}
+.product-page-rating-img{
+    margin: 0;
+}
+.product-page-rating-text{
+margin: 0;
+
+}
+.product-page-button-1{
+    color: white;
+    background: black;
+    border-radius: 0.25rem 0 0 0.25rem;
+    width: 60%;
+    padding: 0.75rem;
+    border: none;
+    margin-top: 2rem;
+}
+
+.faq{
+    border-bottom: 1px solid gray;
+    position: relative;
+}
+span p{
+    
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+
+}
+
+.product-page-desc{
+    /* border: 1px solid blueviolet; */
+    width: 100%;
+    max-width: 40%;
+    
+   }
+ 
+.product-page-image-options{
+   
+    max-width: 20%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: center;
+    
+}
+.product-page-image-options img{
+    width: 100%;
+    height: 100%;
+    
+}
+.product-page-image-options-image{
+    max-width: 112px;
+    max-height: 112px;
+    border: 1px solid transparent;
+}
+.product-page-rating-text  p{
+    /* position: absolute; */
+    
+    
+}
+.product-page-rating-text{
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+}
+li{
+    display: flex;
+    
+    gap: 1rem;
+    align-items: center
+    
+}
+.li-text{
+    font-family: var(--learn-font);
+    font-size: .85rem;
+}
+.ul-class{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.faq p{
+    padding: 1rem 0;
+    font-weight: 500;
+    border-bottom: 1px solid black;
+
+}
+
+.ul-icon img{
+    height: 20px;
+    width: 20px
+
+}
+.ul-class{
+    padding-left: 0;
+}
+.faq {
+    border-bottom: 2px solid gray;
+    padding: 1rem 0;
+    cursor: pointer;
+}
+
+/* Collapsible content */
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    padding-top: 0;
+}
+
+/* When active, show content */
+.faq.active .faq-content {
+    max-height: 500px;
+    opacity: 1;
+    padding-top: 0.5rem;
+}
+
+#faq-exception{
+    border: none;
+}
+.buttons{
+    display: flex;
+    gap: 2px;
+}
+
+.product-page-button-2{
+    color: white;
+    background: black;
+    border-radius: 0 0.25rem 0.25rem 0;
+    width: 15%;
+    padding: 0.75rem;
+    border: none;
+    margin-top: 2rem;
+
+    
+}
